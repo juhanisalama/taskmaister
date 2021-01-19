@@ -1,0 +1,36 @@
+// Tänne tulevat sovelluksen globaalit tyylit.
+
+// Tuodaan sisään käytettävät Google-fontit.
+
+@import url("http://fonts.googleapis.com/css?family=Istok+Web:400,700|Montserrat:400,700");
+
+// Määritellään UI:ssa käytettävät värit.
+
+$sapphire: #006989;
+$pewterblue: #a3bac3;
+
+$platinum: #eaebed;
+$coquelicot: #f34213;
+
+// Päivitetään Bulman globaalit muuttujat.
+
+$family-sans-serif: "Istok Web", sans-serif;
+$primary: $platinum;
+
+$link: $coquelicot;
+
+// Päivitetään Bulman komponenttimuuttujia.
+$control-border-width: 3px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Täällä määritetään koko sovellusta koskevat globaalit tyylit.
+
+html {
+  background: linear-gradient(to top, $sapphire, $pewterblue);
+}
+
+html,
+body {
+  height: 100%;
+}
