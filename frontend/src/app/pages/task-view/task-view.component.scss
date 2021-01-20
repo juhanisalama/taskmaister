@@ -1,0 +1,122 @@
+// Tässä CSS-tyylitiedostossa määritellään käyttöliittymän layout.
+// Kaikissa luokissa käytetään CSS:n tehokasta Flexbox-mallia.
+
+// Nämä deklaraatiot ovat itse sisällölle
+
+@import "../../../main-styles.scss";
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+// Ja nämä sovellusikkunalle
+
+.task-manager-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  max-height: 650px;
+}
+
+//.logo {
+//display: flex;
+//flex-direction: column;
+//width: 250px;
+//padding: 45px;
+//}
+
+// Tässä määritellään sidebarin tyylit
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 45px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+// Ja tässä tehtävät-osion tyylit
+
+.task-list-container {
+  background-color: #e6ecef;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 45px;
+}
+
+// Muutetaan otsikoiden fonttia ja muotoilua
+
+.title {
+  font-family: "Montserrat";
+  font-size: 30px;
+}
+
+// list-menu-item -luokka voidaan nestata list-menun sisälle,
+// koska käytämme Sassia tavallisen CSS:n sijaan.
+
+.list-menu {
+  font-family: "Istok web";
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  flex-grow: 1;
+
+  .list-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 2px;
+    color: $sapphire;
+    margin-bottom: 10px;
+
+    &:hover {
+      background: #e6ecef;
+    }
+
+    &.is-active {
+      background-color: #26cf7d;
+      color: #ffffff;
+    }
+  }
+}
+
+// Määritellään yksittäisen tehtävän (taskin) tyylit. Sisältää animaatioita ja
+// muuttuvan kursorin.
+
+.task {
+  color: $sapphire;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 2px;
+  margin-top: 12px;
+
+  &:not(.complete) {
+    cursor: pointer;
+
+    &:active {
+      transform: scale(0.99);
+    }
+
+    transition: box-shadow 0.3s ease, transform 0.15s ease,
+      text-decoration 0.3s ease;
+
+    &:hover {
+      box-shadow: 0px 0px 7px 6px #dee0e3;
+    }
+  }
+
+  &.complete {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+}
